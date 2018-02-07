@@ -17,79 +17,17 @@
             
             <div class="col-md-8">
                
-             <?php
-
+             <?php 
       
+             $query = "SELECT * FROM categories";
+             $select_all_category = mysqli_query($connection,$query);
+             //var_dump($select_all_category);
 
-             $per_page = 10;
+             while ($row = mysqli_fetch_assoc($select_all_category)) {
+                $cat_title = $row['cat_title'];
 
-
-            if(isset($_GET['page'])) {
-
-
-            $page = $_GET['page'];
-
-            } else {
-
-
-                $page = "";
-            }
-
-
-            if($page == "" || $page == 1) {
-
-                $page_1 = 0;
-
-            } else {
-
-                $page_1 = ($page * $per_page) - $per_page;
-
-            }
-
-
-         if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin' ) {
-
-
-        $post_query_count = "SELECT * FROM posts";
-
-
-         } else {
-
-         $post_query_count = "SELECT * FROM posts WHERE post_status = 'published'";
-
-         }   
-
-        $find_count = mysqli_query($connection,$post_query_count);
-        $count = mysqli_num_rows($find_count);
-
-        if($count < 1) {
-
-
-            echo "<h1 class='text-center'>No posts available</h1>";
-
-
-
-
-        } else {
-
-
-        $count  = ceil($count /$per_page);
-
-
-
-                
-        $query = "SELECT * FROM posts LIMIT $page_1, $per_page";
-        $select_all_posts_query = mysqli_query($connection,$query);
-
-        while($row = mysqli_fetch_assoc($select_all_posts_query)) {
-        $post_id = $row['post_id'];
-        $post_title = $row['post_title'];
-        $post_author = $row['post_user'];
-        $post_date = $row['post_date'];
-        $post_image = $row['post_image'];
-        $post_content = substr($row['post_content'],0,400);
-        $post_status = $row['post_status'];
-        
+                echo "<li>{$row['cat_title']}</li>";
+             }
 
     
         ?>
@@ -101,12 +39,12 @@
               
 
                 <h2>
-                    <a href="post/<?php echo $post_id; ?>"><?php echo $post_title ?></a>
+                    <a href="post/<?php echo $post_id; ?>"></a>
                 </h2>
                 <p class="lead">
-                    by <a href="author_posts.php?author=<?php echo $post_author ?>&p_id=<?php echo $post_id; ?>"><?php echo $post_author ?></a>
+                    by <a href="author_posts.php?author=<?php echo $post_author ?>&p_id=<?php echo $post_id; ?>"></a>
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date ?></p>
+                <p><span class="glyphicon glyphicon-time"></span> </p>
                 <hr>
                 
                 
@@ -123,7 +61,7 @@
                 <hr>
                 
 
-   <?php }  } ?>
+   
 
                 
                 

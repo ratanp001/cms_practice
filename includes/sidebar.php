@@ -1,33 +1,3 @@
-
-<?php
-
-
-        if(ifItIsMethod('post')){
-
-
-                if(isset($_POST['login'])){
-
-
-                    if(isset($_POST['username']) && isset($_POST['password'])){
-
-                        login_user($_POST['username'], $_POST['password']);
-
-
-                    }else {
-
-
-                        redirect('index');
-                    }
-
-
-                }
-
-        }
-
-?>
-
-
-
 <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
                  
@@ -53,13 +23,13 @@
   <!--Login -->
     <div class="well">
 
-        <?php if(isset($_SESSION['user_role'])): ?>
+       
 
-             <h4>Logged in as <?php echo $_SESSION['username'] ?></h4>
+             <h4>Logged in as </h4>
 
              <a href="includes/logout.php" class="btn btn-primary">Logout</a>
 
-        <?php else: ?>
+
 
              <h4>Login</h4>
 
@@ -88,7 +58,7 @@
 
 
 
-        <?php endif; ?>
+        
 
 
        
@@ -103,27 +73,7 @@
                   
                   
                   
-        <?php 
-        $query = "SELECT * FROM categories";
-        $select_categories_sidebar = mysqli_query($connection,$query);         
-        ?>
-                 <h4>Blog Categories</h4>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ul class="list-unstyled">
-                              
-                              <?php 
-
-        while($row = mysqli_fetch_assoc($select_categories_sidebar )) {
-        $cat_title = $row['cat_title'];
-        $cat_id = $row['cat_id'];
-
-        echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
-
-
-        }
-   
-                            ?>
+       
                               
                             </ul>
                         </div>
@@ -133,7 +83,7 @@
                 </div>
                 
                 <!-- Side Widget Well -->
-                 <?php //include "widget.php"; ?>
+                
 
             </div>
             

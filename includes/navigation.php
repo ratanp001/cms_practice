@@ -24,61 +24,12 @@
     $select_all_categories_query = mysqli_query($connection,$query);
 
     while($row = mysqli_fetch_assoc($select_all_categories_query)) {
-       $cat_title = $row['cat_title'];
-       $cat_id = $row['cat_id'];
-        
-        echo "<li><a href='/cms/category/{$cat_id}'>{$cat_title}</a></li>";
+        $cat_title = $row['cat_title'];
+        $cat_id = $row['cat_id'];
+      
+        echo "<li><a href='#'>{$cat_title}</a></li>";
     }
                     
-    ?>
-
-                    <?php if(isLoggedIn()): ?>
-
-
-                        <li>
-                            <a href="/cms/admin">Admin</a>
-                        </li>
-
-                        <li>
-                            <a href="/cms/includes/logout.php">Logout</a>
-                        </li>
-
-
-                    <?php else: ?>
-
-
-                        <li>
-                            <a href="/cms/login.php">Login</a>
-                        </li>
-
-
-                    <?php endif; ?>
-
-
-
-
-                                 
-                     <li>
-                        <a href="/cms/registration">Registration</a>
-                    </li>
-                                  
-                    
-    <?php 
-
-    if(isset($_SESSION['user_role'])) {
-    
-        if(isset($_GET['p_id'])) {
-            
-          $the_post_id = $_GET['p_id'];
-        
-        echo "<li><a href='/cms/admin/posts.php?source=edit_post&p_id={$the_post_id}'>Edit Post</a></li>";
-        
-        }
-    
-    
-    
-    }
-    
     ?>
 
            
