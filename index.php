@@ -1,6 +1,6 @@
 <?php  include "includes/db.php"; ?>
- <?php  include "includes/header.php"; ?>
-
+ 
+<?php  include "includes/header.php"; ?>
 
     <!-- Navigation -->
     
@@ -19,37 +19,35 @@
                
              <?php 
       
-             $query = "SELECT * FROM categories";
-             $select_all_category = mysqli_query($connection,$query);
+             $query = "SELECT * FROM posts";
+             $select_all_posts = mysqli_query($connection,$query);
              //var_dump($select_all_category);
 
-             while ($row = mysqli_fetch_assoc($select_all_category)) {
-                $cat_title = $row['cat_title'];
+             while ($row = mysqli_fetch_assoc($select_all_posts)) {
+                $post_title = $row['post_title'];
+                $post_author = $row['post_author'];
+                $post_date = $row['post_date'];
+                $post_image = $row['post_image'];
+                $post_content = $row['post_content'];
+                ?>
 
-                echo "<li>{$row['cat_title']}</li>";
-             }
 
-    
-        ?>
-        
-     
-
-                <!-- First Blog Post -->
+                 <!-- First Blog Post -->
 
               
 
                 <h2>
-                    <a href="post/<?php echo $post_id; ?>"></a>
+                    <a href="#"><?php echo $post_title; ?></a>
                 </h2>
                 <p class="lead">
-                    by <a href="author_posts.php?author=<?php echo $post_author ?>&p_id=<?php echo $post_id; ?>"></a>
+                    by <a href="#"><?php echo $post_author ?></a>
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> </p>
+                <p><span class="glyphicon glyphicon-time"><?php echo $post_date ?></span> </p>
                 <hr>
                 
                 
-                <a href="post.php?p_id=<?php echo $post_id; ?>">
-                <img class="img-responsive" src="images/<?php echo $post_image;?>" alt="">
+                
+                <img class="img-responsive" src="#" alt="">
                 </a>
                 
                 
@@ -73,6 +71,14 @@
     
 
             </div>
+            <?php } ?>
+
+    
+        
+        
+     
+
+               
             
               
 
@@ -83,58 +89,7 @@
              
 
         </div>
-        <!-- /.row -->
-
-        <hr>
 
 
-        <ul class="pager">
-
-        <?php 
-
-        $number_list = array();
-
-
-        for($i =1; $i <= $count; $i++) {
-
-
-        if($i == $page) {
-
-             echo "<li '><a class='active_link' href='index.php?page={$i}'>{$i}</a></li>";
-
-
-        }  else {
-
-            echo "<li '><a href='index.php?page={$i}'>{$i}</a></li>";
-
-
-
-        
-         
-
-        }
-
-        
-        
-
-
-
-           
-        }
-
-
-
-
-
-
-         ?>
-            
-
-
-
-
-        </ul>
-
-   
 
 <?php include "includes/footer.php";?>
