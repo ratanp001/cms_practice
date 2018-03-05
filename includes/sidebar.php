@@ -53,28 +53,10 @@
 
                     </div>
 
-                </form><!--search form-->
-                <!-- /.input-group -->
+                </form>
+    
     </div>     
-                
-                
-                
-
-                <!-- Blog Categories Well -->
-                
-                  
-                  
-       
-                              
-                            
-                        
-                        
-                    
-                    <!-- /.row -->
-                
-                
-                <!-- Side Widget Well -->
-                
-
+    
+</div>
             
                    
