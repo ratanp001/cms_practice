@@ -51,21 +51,12 @@
                 
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <hr>
+                <?php } ?>  
             </div>
-            
-            </div> 
-            <?php } ?>  
-            </div>
-
-
-            
-            <!-- Blog Sidebar Widgets Column -->
-         
-           <?php include "includes/sidebar.php";?>
+                
              
-
-        
-
-
-
-<?php include "includes/footer.php";?>
+            <!-- Blog Sidebar Widgets Column -->
+            <?php include "includes/sidebar.php";?>  
+                <?php include "includes/footer.php";?>
+            </div>
+        </div>
